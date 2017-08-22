@@ -8,8 +8,9 @@ MVC, DAO
 
 <br/><br/>
 
-## Main functions:
+## Main Function:
 <span style="color:red;">Administer:</span> Login, Add/delete dish, Update dish, Manage orders.
+<br/><br/>
 <span style="color:red;">Customer:</span> Choose dish, Add order, Delete order, See order.
 
 <br/><br/>
