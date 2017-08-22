@@ -4,6 +4,8 @@
 
 ### Design Pattern: MVC, DAO
 
+<br/><br/>
+
 - [x] Create Order Class
 
 	- user name
@@ -17,6 +19,6 @@
 	- is paid or not
 	- is picked or not
 	
-- [] Design Administer Login Page
+- [ ] Administer Login Page
 
-- [] 
+- [ ] Admin List Orders Page
