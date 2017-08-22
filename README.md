@@ -6,14 +6,10 @@ Java EE, JSP, Servlet, JDBC, Mysql
 ### Design Pattern:
 MVC, DAO
 
-<br/><br/>
-
 ## Main Function:
 <span style="color:red;">Administer:</span> Login, Add/delete dish, Update dish, Manage orders.
 <br/><br/>
 <span style="color:red;">Customer:</span> Choose dish, Add order, Delete order, See order.
-
-<br/><br/>
 
 ## To be done: 
 
