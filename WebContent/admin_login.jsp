@@ -11,7 +11,7 @@
 
 <body>
 
-	<form action="login" method="POST">
+	<form action="admin" method="POST">
         <h3>Log In</h3>
         <label >
             <input name="id" class="input" type="text"  placeholder="User Name">

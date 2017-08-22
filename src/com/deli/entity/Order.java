@@ -1,4 +1,4 @@
-package com.deli.web;
+package com.deli.entity;
 
 public class Order {
 	private int id;
@@ -131,7 +131,13 @@ public class Order {
 	public void setPicked(boolean isPicked) {
 		this.isPicked = isPicked;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", userName=" + userName + ", dish=" + dish + ", email=" + email + ", cell=" + cell
+				+ ", time=" + time + ", place=" + place + ", price=" + price + ", payment=" + payment + ", isPaid="
+				+ isPaid + ", isPicked=" + isPicked + "]";
+	}
 	
-	
-	
+
 }
