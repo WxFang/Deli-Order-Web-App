@@ -1,35 +1,16 @@
 ## Web App for Deli Order
 
-### Tech Stack: Java EE, JSP, Servlet, JDBC, Mysql
+### Tech Stack:
+Java EE, JSP, Servlet, JDBC, Mysql
 
-### Design Pattern: MVC, DAO
+### Design Pattern:
+MVC, DAO
 
 <br/><br/>
 
 ## Main functions:
-
-<table>
-	<tr>
-		<th style="color:red">Admin</th>
-		<th style="color:red">User</th>
-	</tr>
-	<tr>
-		<th>Login</th>
-		<th>Choose dish</th>
-	</tr>
-	<tr>
-		<th>Add/delete dish</th>
-		<th>Add order</th>
-	</tr>
-	<tr>
-		<th>Update dish</th>
-		<th>Delete order</th>
-	</tr>
-	<tr>
-		<th>Manage orders</th>
-		<th>See order</th>
-	</tr>
-</table>
+<span style="color:red;">Administer:</span> Login, Add/delete dish, Update dish, Manage orders.
+<span style="color:red;">Customer:</span> Choose dish, Add order, Delete order, See order.
 
 <br/><br/>
 
