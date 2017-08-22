@@ -10,25 +10,24 @@
 
 <table>
 	<tr>
-		<th>Admin</th>
-		<th>User</th>
+		<th style="color:red">Admin</th>
+		<th style="color:red">User</th>
 	</tr>
 	<tr>
-		<td>
-			Login
-			| Choose dish
-		</td>
-		<td>
-			Add/delete dish
-			| Add order
-		</td>
-		<td>
-			Update dish
-			| Delete order
-		</td><td>
-			Manage orders
-			| See order
-		</td>
+		<th>Login</th>
+		<th>Choose dish</th>
+	</tr>
+	<tr>
+		<th>Add/delete dish</th>
+		<th>Add order</th>
+	</tr>
+	<tr>
+		<th>Update dish</th>
+		<th>Delete order</th>
+	</tr>
+	<tr>
+		<th>Manage orders</th>
+		<th>See order</th>
 	</tr>
 </table>
 
