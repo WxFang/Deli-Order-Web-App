@@ -30,4 +30,4 @@ MVC, DAO
 
 - [x] Administer Authentication (Webfilter and Servlet)
 
-- [ ] Administer - List Orders Page
+- [ ] Create mySql database for deli and order

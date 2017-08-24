@@ -1,0 +1,17 @@
+<Context>
+
+  <Resource name="jdbc/web_order_tracker" 
+  			auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="5" maxWait="10000"
+               username="weborder" password="weborder" 
+               driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/web_student_tracker?useSSL=false"/>
+
+  <Resource name="jdbc/web_deli_tracker" 
+  			auth="Container" type="javax.sql.DataSource"
+               maxActive="20" maxIdle="5" maxWait="10000"
+               username="webdeli" password="webdeli" 
+               driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/web_student_tracker?useSSL=false"/>
+
+</Context>
