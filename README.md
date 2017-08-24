@@ -28,6 +28,6 @@ MVC, DAO
 	
 - [x] Administer Login Page
 
-- [ ] Add Admin Filter 
+- [x] Administer Authentication (Webfilter and Servlet)
 
 - [ ] Administer - List Orders Page

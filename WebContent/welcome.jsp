@@ -11,7 +11,7 @@
 
 <body>
 
-<h1><a href="admin_login.jsp">Administer Login</a></h1>
+<h1><a href="login.jsp">Administer Login</a></h1>
 
 
 

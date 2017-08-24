@@ -1,68 +1,81 @@
 package com.deli.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
-import java.net.URLEncoder;
 
+import javax.crypto.BadPaddingException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/login")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
+
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	private ServletContext context;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	        try{
-	        	
-	            String id = request.getParameter("id");
-	            String password = request.getParameter("password");
-	            
-	            String ctxPath = request.getContextPath();
-	            
-	            String indexPage = "/admin/list_orders.jsp";
-	            PrintWriter out  = response.getWriter();
-	            
-	            if(id == "root" && password == "12345678") {
-	            	
-	            	// create cookie
-	                request.getSession().setAttribute("adminId", id);
-	                request.getSession().setAttribute("adminPsw", password);
-	                
-	                // set cookie
-	                URLEncoder.encode("Name","UTF-8");
-	                Cookie Id =new Cookie("adminId", id);
-	                Cookie Pass = new Cookie("adminPsw", password);
-	                response.addCookie(Id);
-	                response.addCookie(Pass);
-	                
-	                request.getSession().setAttribute("admin", "root");
-	                // redirect to list_orders page 
-	                response.sendRedirect(ctxPath+indexPage);
-	            } else {
-	            	System.out.println("User doesn't exist or wrong password");
-	            	response.sendRedirect(ctxPath+"/welcome.jsp");
-	            }
-	        } catch (Exception exc){
-	            exc.printStackTrace();
-	        }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		
+		System.out.println("--- In the doPost --");
+		
+		context = getServletContext();
+		String homeURI = request.getContextPath() + "/secured/index.jsp";
+		// get request parameters for userID and password
+		String pass = request.getParameter("j_username");
+	//	String username = request.getParameter("username");
+	//	String password = request.getParameter("password");
+
+		if (pass.equals("123456")) {
+			System.out.println(" - granted access !");
+		} else {
+			System.out.println(" - access Refused");
+			pass = null;
+		}
+
+		// User user = userDAO.find(username, password);
+
+		System.out.println(" - entered password is " + pass);
+
+		if (pass != null) {
+
+			request.setAttribute("message", "Welcome to your page !");
+			request.setAttribute("titleMessage", pass);
+
+			request.getSession().setAttribute("user", pass); // Put user in
+																// session.
+			System.out.println("redirect to " + homeURI);
+			response.sendRedirect(homeURI); // Go to some start page.
+			return;
+		} else {
+			request.setAttribute("error", "Unknown login, try again"); // Set
+																		// error
+																		// msg
+																		// for
+																		// ${error}
+			request.getRequestDispatcher("/login.jsp").forward(request, response); // Go
+																					// back
+																					// to
+																					// login
+																					// page.
+		}
+
 	}
 
 }
