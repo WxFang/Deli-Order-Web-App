@@ -29,11 +29,14 @@ Customer: Choose dish, Add order, Delete order, See order.
 	- is picked or not
 	- note
 	
-- [x] + <font color=#A52A2A>Administer Login Page</font>
+- [x]  Administer Login Page
 
-- [x] + <font color=#A52A2A>Administer Authentication (Webfilter and Servlet)</font>
+- [x]  Administer Authentication (Webfilter and Servlet)
 
-- [x] + <font color=#A52A2A>Create MySQL database for dish and order</font>
+- [x]  Create MySQL database for dish and order
 
-- [ ] + <font color=#A52A2A>Design basic customer page:</font><br/>
-check box to choose dishes | radio box to choose pick time, place and payment | fill in name, email, cell | add note
+- [ ]  Design basic customer page:<br/>
+	> check box to choose dishes
+	> radio box to choose pick time, place and payment 
+	> fill in name, email, cell
+	> add note
