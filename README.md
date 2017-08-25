@@ -36,7 +36,7 @@ MVC, DAO
 - [x] Create MySQL database for dish and order
 
 - [ ] Design basic customer page:
-		[ ] check box to choose dishes
-		[ ] radio box to choose pick time, place and payment
-		[ ] fill in name, email, cell
-		[ ] add note
+		- [ ] check box to choose dishes
+		- [ ] radio box to choose pick time, place and payment
+		- [ ] fill in name, email, cell
+		- [ ] add note
