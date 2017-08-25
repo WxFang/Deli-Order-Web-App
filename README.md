@@ -15,16 +15,19 @@ MVC, DAO
 
 - [x] Create Order Class
 
-	- user name
-	- dish name
+	- order id
+	- customer name
 	- phone number
 	- email
+	- dish name
+	- dish id
 	- pickup time
 	- pickup address
 	- dish price
 	- payment way
 	- is paid or not
 	- is picked or not
+	- note
 	
 - [x] Administer Login Page
 

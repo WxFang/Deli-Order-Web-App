@@ -3,7 +3,8 @@ package com.deli.entity;
 public class Order {
 	private int id;
 	private String userName;
-	private String dish;
+	private String dishName;
+	private int dishId;
 	private String email;
 	private String cell;
 	private String time;
@@ -12,13 +13,15 @@ public class Order {
 	private String payment;
 	private boolean isPaid;
 	private boolean isPicked;
+	private String note;
 	
-	public Order(int id, String userName, String dish, String email, String cell, String time, String place, int price,
-			String payment, boolean isPaid, boolean isPicked) {
+	public Order(int id, String userName, String dish, int dishId, String email, String cell, String time, String place, int price,
+			String payment, boolean isPaid, boolean isPicked, String note) {
 		super();
 		this.id = id;
 		this.userName = userName;
-		this.dish = dish;
+		this.dishName = dishName;
+		this.dishId = dishId;
 		this.email = email;
 		this.cell = cell;
 		this.time = time;
@@ -27,13 +30,15 @@ public class Order {
 		this.payment = payment;
 		this.isPaid = isPaid;
 		this.isPicked = isPicked;
+		this.note = note;
 	}
 
-	public Order(String userName, String dish, String email, String cell, String time, String place, int price,
-			String payment, boolean isPaid, boolean isPicked) {
+	public Order(String userName, String dishName, int dishId, String email, String cell, String time, String place, int price,
+			String payment, boolean isPaid, boolean isPicked, String note) {
 		super();
 		this.userName = userName;
-		this.dish = dish;
+		this.dishName = dishName;
+		this.dishId = dishId;
 		this.email = email;
 		this.cell = cell;
 		this.time = time;
@@ -42,6 +47,7 @@ public class Order {
 		this.payment = payment;
 		this.isPaid = isPaid;
 		this.isPicked = isPicked;
+		this.note = note;
 	}
 
 	public int getId() {
@@ -60,12 +66,12 @@ public class Order {
 		this.userName = userName;
 	}
 
-	public String getDish() {
-		return dish;
+	public String getDishName() {
+		return dishName;
 	}
 
-	public void setDish(String dish) {
-		this.dish = dish;
+	public void setDish(String dishName) {
+		this.dishName = dishName;
 	}
 
 	public String getEmail() {
@@ -134,9 +140,25 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", userName=" + userName + ", dish=" + dish + ", email=" + email + ", cell=" + cell
+		return "Order [id=" + id + ", userName=" + userName + ", dishName=" + dishName + ", dishId=" + dishId + ", email=" + email + ", cell=" + cell
 				+ ", time=" + time + ", place=" + place + ", price=" + price + ", payment=" + payment + ", isPaid="
-				+ isPaid + ", isPicked=" + isPicked + "]";
+				+ isPaid + ", isPicked=" + isPicked + ", note" + "]";
+	}
+
+	public int getDishId() {
+		return dishId;
+	}
+
+	public void setDishId(int dishId) {
+		this.dishId = dishId;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 	
 
