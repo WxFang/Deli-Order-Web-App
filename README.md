@@ -33,4 +33,10 @@ MVC, DAO
 
 - [x] Administer Authentication (Webfilter and Servlet)
 
-- [ ] Create mySql database for deli and order
+- [x] Create MySQL database for dish and order
+
+- [ ] Design basic customer page:
+		[ ] check box to choose dishes
+		[ ] radio box to choose pick time, place and payment
+		[ ] fill in name, email, cell
+		[ ] add note
