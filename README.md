@@ -7,9 +7,9 @@ Java EE, JSP, Servlet, JDBC, Mysql
 MVC, DAO
 
 ## Main Function:
-<span style="color:red;">Administer:</span> Login, Add/delete dish, Update dish, Manage orders.
+Administer: Login, Add/delete dish, Update dish, Manage orders.
 <br/><br/>
-<span style="color:red;">Customer:</span> Choose dish, Add order, Delete order, See order.
+Customer: Choose dish, Add order, Delete order, See order.
 
 ## To be done: 
 
@@ -36,7 +36,4 @@ MVC, DAO
 - [x] Create MySQL database for dish and order
 
 - [ ] Design basic customer page:
-		- [ ] check box to choose dishes
-		- [ ] radio box to choose pick time, place and payment
-		- [ ] fill in name, email, cell
-		- [ ] add note
+	check box to choose dishes | radio box to choose pick time, place and payment | fill in name, email, cell | add note
