@@ -12,7 +12,6 @@ Administer: Login, Add/delete dish, Update dish, Manage orders.
 Customer: Choose dish, Add order, Delete order, See order.
 
 ## To be done: 
-```diff
 - [x] + Create Order Class
 
 	- order id
