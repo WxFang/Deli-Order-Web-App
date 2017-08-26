@@ -1,6 +1,6 @@
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <html>
 
@@ -11,7 +11,8 @@
 
 
 <center>
-	<br><%=new java.util.Date()%><br>
+	<h1>Todays's Orders</h1>
+	<%=new java.util.Date()%>
 </center>
 
 

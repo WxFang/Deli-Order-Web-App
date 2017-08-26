@@ -1,33 +1,44 @@
 package com.deli.entity;
 
 public class Dish {
-	private String dishName;
-	private int dishId;
+	private String name;
+	private int id;
+	private int price;
 	
 	public String getDishName() {
-		return dishName;
+		return name;
 	}
-	public void setDishName(String dishName) {
-		this.dishName = dishName;
+	public void setDishName(String name) {
+		this.name = name;
 	}
 	public int getDishId() {
-		return dishId;
+		return id;
 	}
-	public void setDishId(int dishId) {
-		this.dishId = dishId;
+	public void setDishId(int id) {
+		this.id = id;
 	}
 	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	
-	public Dish(String dishName, int dishId) {
+	public Dish(int id, String name, int price) {
 		super();
-		this.dishName = dishName;
-		this.dishId = dishId;
+		this.name = name;
+		this.id = id;
+		this.price = price;
 	}
+	
+	
 	
 	@Override
 	public String toString() {
-		return "Dish [dishName=" + dishName + ", dishId=" + dishId + "]";
+		return "Dish [dishName=" + name + ", dishId=" + id + ", price=" + price + "]";
 	}
+	
 	
 	
 }
