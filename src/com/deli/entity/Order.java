@@ -11,6 +11,15 @@ public class Order {
 	private int price;
 	private String payment;
 	private boolean isPaid;
+	
+	public boolean isPaid() {
+		return isPaid;
+	}
+
+	public void setPaid(boolean isPaid) {
+		this.isPaid = isPaid;
+	}
+
 	private boolean isPicked;
 	private String note;
 
@@ -93,14 +102,6 @@ public class Order {
 
 	public void setPayment(String payment) {
 		this.payment = payment;
-	}
-
-	public boolean isPaid() {
-		return isPaid;
-	}
-
-	public void setPaid(boolean isPaid) {
-		this.isPaid = isPaid;
 	}
 
 	public boolean isPicked() {
