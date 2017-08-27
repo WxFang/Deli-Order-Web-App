@@ -31,9 +31,6 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		
-		System.out.println("--- In the doPost --");
 		
 		context = getServletContext();
 		String homeURI = "secured/AdminControllerServlet";
@@ -47,22 +44,13 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("message", "Welcome to your page !");
 			request.setAttribute("titleMessage", pass);
 
-			request.getSession().setAttribute("user", pass); // Put user in
-																// session.
+			request.getSession().setAttribute("user", pass);
 			System.out.println("redirect to " + homeURI);
-			response.sendRedirect(homeURI); // Go to some start page.
+			response.sendRedirect(homeURI); 
 			return;
 		} else {
-			request.setAttribute("error", "Unknown login, try again"); // Set
-																		// error
-																		// msg
-																		// for
-																		// ${error}
-			request.getRequestDispatcher("/login.jsp").forward(request, response); // Go
-																					// back
-																					// to
-																					// login
-																					// page.
+			request.setAttribute("error", "Unknown login, try again"); 
+			request.getRequestDispatcher("/login.jsp").forward(request, response); 
 		}
 
 	}

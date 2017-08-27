@@ -15,6 +15,30 @@
 
 <body>
 
+<!-- read cookie -->
+<%
+	String name = "";
+	String email = "";
+	String cell = "";
+	// get the cookie from the browser request
+	Cookie[] theCookies = request.getCookies();
+	
+	if(theCookies != null){
+		for(Cookie temp: theCookies){
+			if("myApp.name".equals(temp.getName())){
+				name = temp.getValue();
+			}
+			if("myApp.email".equals(temp.getName())){
+				email = temp.getValue();
+			}
+			if("myApp.cell".equals(temp.getName())){
+				cell = temp.getValue();
+			}
+		}
+	}
+%>
+
+
 <center>
 	<h5><a href="login.jsp">Administer Login</a></h5>
 	<h1>Chinese Deli</h1>
@@ -64,15 +88,15 @@
 			<tbody>
 				<tr>
 					<td>Name: </td>
-					<td><input type="text" name="name" required/></td>
+					<td><input type="text" name="name" value="<%=name %>" required/></td>
 				</tr>
 				<tr>
 					<td>Email: </td>
-					<td><input type="text" name="email" required/></td>
+					<td><input type="text" name="email" value="<%=email %>" required/></td>
 				</tr>
 				<tr>
 					<td>Telephone number: </td>
-					<td><input type="text" name="cell" required/></td>
+					<td><input type="text" name="cell" value="<%=cell %>" required/></td>
 				</tr>
 			</tbody>
 		</table>

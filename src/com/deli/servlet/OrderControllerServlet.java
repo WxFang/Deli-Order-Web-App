@@ -11,6 +11,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -58,6 +59,9 @@ public class OrderControllerServlet extends HttpServlet {
 			case "ADD":
 				addOrder(request, response);
 				break;
+				
+			default:
+				
 			}
 		}
 		catch(Exception exc){
@@ -85,8 +89,28 @@ public class OrderControllerServlet extends HttpServlet {
 				payment, false, false, note);
 		OrderDbUtil.addOrder(theOrder);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
-		dispatcher.forward(request, response);
+		if(userName != null){
+			userName = userName.replace(" ", "");
+			Cookie theCookie = new Cookie("myApp.name", userName);
+			theCookie.setMaxAge(60*60*24*365);
+			response.addCookie(theCookie);
+		}
+		
+		if(email != null){
+			email = email.replace(" ", "");
+			Cookie theCookie = new Cookie("myApp.email", email);
+			theCookie.setMaxAge(60*60*24*365);
+			response.addCookie(theCookie);
+		}
+		
+		if(cell != null){
+			cell = cell.replace(" ", "");
+			Cookie theCookie = new Cookie("myApp.cell", cell);
+			theCookie.setMaxAge(60*60*24*365);
+			response.addCookie(theCookie);
+		}
+		
+		response.sendRedirect(request.getContextPath());
 	}
 
 }
