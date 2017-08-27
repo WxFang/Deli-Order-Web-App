@@ -10,12 +10,14 @@ import java.util.*;
 public class DishDbUtil {
 	
 	private static DataSource dataSource;
+	
+	private static int maxDish = 0;
 
 	public DishDbUtil(DataSource theDataSource) {
 		dataSource = theDataSource;
 	}
 
-	public List<Dish> getDishes() throws Exception{
+	public static List<Dish> getDishes() throws Exception{
 		List<Dish> dishes = new ArrayList<>();
 		
 		Connection myConn = null;
@@ -39,7 +41,7 @@ public class DishDbUtil {
 				
 				dishes.add(tempDish);
 			}
-			
+			maxDish = Math.max(maxDish, dishes.size());
 			return dishes;
 		}
 		finally{
@@ -96,10 +98,85 @@ public class DishDbUtil {
 		}
 	}
 
-	public void addDish(Dish theDish) {
-		// TODO Auto-generated method stub
+	public void addDish(Dish theDish) throws Exception {
+		
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		
+		try{
+			myConn = dataSource.getConnection();
+			
+			String sql = "insert into dish "
+					+ "(name, id, price) "
+					+ "values(?,?,?)";
+			myStmt = myConn.prepareStatement(sql);
+			
+			myStmt.setString(1, theDish.getDishName());
+			myStmt.setInt(2, maxDish + 1);
+			maxDish++;
+			myStmt.setInt(3, theDish.getPrice());
+			
+			myStmt.execute();
+			
+		}
+		finally{
+			close(myConn, myStmt, null);
+		}
 		
 	}
+
+
+	public void deleteDish(Dish theDish) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		try{
+			myConn = dataSource.getConnection();
+			String sql = "delete from dish where id=?";
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setInt(1, theDish.getDishId());
+			myStmt.execute();
+		}
+		finally{
+			close(myConn, myStmt, myRs);
+		}
+	}
+
+	public void updateDish(Dish theDish) 
+		throws Exception {
+		
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		
+		try{
+			
+			// get db connection
+			myConn = dataSource.getConnection();
+			
+			// create SQL update statement 
+			String sql = "update dish "
+					+ "set name=?, id=?, price=? "
+					+ "where name=?";
+			
+			// prepare statement
+			myStmt = myConn.prepareStatement(sql);
+			
+			// set params
+			myStmt.setString(1, theDish.getDishName());
+			myStmt.setInt(2, theDish.getDishId());
+			myStmt.setInt(3, theDish.getPrice());
+			myStmt.setString(4, theDish.getDishName());
+			
+			// execute SQL statement
+			myStmt.execute();
+		
+		}
+		finally{
+			// clean up JDBC object
+			close(myConn, myStmt, null);
+		}
+	}
+
 
 
 }

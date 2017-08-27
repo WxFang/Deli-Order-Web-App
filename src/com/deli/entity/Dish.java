@@ -32,8 +32,12 @@ public class Dish {
 		this.price = price;
 	}
 	
-	
-	
+
+	public Dish(String name, int price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
 	@Override
 	public String toString() {
 		return "Dish [dishName=" + name + ", dishId=" + id + ", price=" + price + "]";

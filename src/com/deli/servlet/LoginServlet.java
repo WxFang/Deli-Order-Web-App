@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("--- In the doPost --");
 		
 		context = getServletContext();
-		String homeURI = "OrderControllerServlet";
+		String homeURI = "secured/AdminControllerServlet";
 		String pass = request.getParameter("j_username");
 
 		if (!pass.equals("123456"))

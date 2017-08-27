@@ -2,6 +2,7 @@ package com.deli.servlet;
 
 import com.deli.entity.*;
 import com.deli.util.*;
+import com.deli.servlet.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,6 +24,8 @@ public class DishControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private DishDbUtil DishDbUtil;
+	
+	private OrderDbUtil OrderDbUtil;
 	
 	@Resource(name="jdbc/webdeli")
 	private DataSource dataSource;
@@ -65,11 +68,7 @@ public class DishControllerServlet extends HttpServlet {
 				listDishes(request, response);
 				break;
 			
-//			case "ADD":
-//				addDish(request, response);
-//				break;
-				
-			default: 
+			default:
 				listDishes(request, response);
 			}
 		}
@@ -77,23 +76,8 @@ public class DishControllerServlet extends HttpServlet {
 			throw new ServletException(exc);
 		}
 		
-		
-		
-		
 	}
 
-
-//	private void addDish(HttpServletRequest request, HttpServletResponse response) {
-//		String dishName = request.getParameter("name");
-//		int dishId = request.getParameter("id");
-//		int price = request.getParameter("price");
-//		
-//		Dish theDish = new Dish(dishId, dishName, price);
-//		DishDbUtil.addDish(theDish);
-//		
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/order_submited.jsp");
-//		dispatcher.forward(request, request);
-//	}
 
 
 	private void listDishes(HttpServletRequest request, HttpServletResponse response) 
@@ -107,7 +91,10 @@ public class DishControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+
 }
+
+
 
 
 

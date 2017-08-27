@@ -28,11 +28,20 @@ Customer: Choose dish, Add order, Delete order, See order.
 	- is picked or not
 	- note
 	
+- [x]  Create Dish Class
+
+	- dish id (each dish has unique id, even after deleted)
+	- dish name
+	- price
+	
 - [x]  Administer Login Page
+
 
 - [x]  Administer Authentication (Webfilter and Servlet)
 
+
 - [x]  Create MySQL database for dish and order
+
 
 - [x]  Design basic customer page:<br/>
 	
@@ -40,10 +49,13 @@ Customer: Choose dish, Add order, Delete order, See order.
 	- choose pick time, place and payment
 	- fill in name, email, cell
 	- add note
-- [ ] Design basic administer page:<br/>
+	
+- [x] Design basic administer page:<br/>
 
-	- show all orders (information)
+	- show all orders (order by isPaid, isPicked and customer name)
 	- show all dishes 
 	- add / delete dish
 	- update dish info
 	- update state of order (isPicked, isPaid)
+	
+- [ ]  Handle cookies for customer information

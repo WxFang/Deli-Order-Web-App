@@ -25,6 +25,8 @@ public class OrderControllerServlet extends HttpServlet {
 
 	private OrderDbUtil OrderDbUtil;
 	
+	private DishDbUtil DishDbUtil;
+	
 	@Resource(name="jdbc/webdeli")
 	private DataSource dataSource;
 	
@@ -36,6 +38,7 @@ public class OrderControllerServlet extends HttpServlet {
 		// create our dish dbutil ...  and pass in the connection pool
 		try{
 			OrderDbUtil = new OrderDbUtil(dataSource);
+			DishDbUtil = new DishDbUtil(dataSource);
 		}
 		catch(Exception exc){
 			throw new ServletException(exc);
@@ -50,20 +53,11 @@ public class OrderControllerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
 			String theCommand = request.getParameter("command");
-			if(theCommand == null)
-				theCommand = "LIST";
 			switch(theCommand){
-			
-			case "LIST":
-				listOrders(request, response);
-				break;
 			
 			case "ADD":
 				addOrder(request, response);
 				break;
-				
-			default: 
-				listOrders(request, response);
 			}
 		}
 		catch(Exception exc){
@@ -93,14 +87,6 @@ public class OrderControllerServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
 		dispatcher.forward(request, response);
-	}
-
-	private void listOrders(HttpServletRequest request, HttpServletResponse response) 
-		throws Exception {
-		List<Order> orders = OrderDbUtil.getOrders();
-		request.setAttribute("ORDER_LIST", orders);
-		System.out.println("redirect to ...");
-		request.getRequestDispatcher("/secured/index.jsp").forward(request, response);
 	}
 
 }

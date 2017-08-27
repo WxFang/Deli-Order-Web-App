@@ -1,0 +1,21 @@
+table {
+	border: 1px;
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    text-align: center;
+}
+
+th, td {
+    border: 1px;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 8px;
+}
+
+
+table {
+	text-align: center;
+}
