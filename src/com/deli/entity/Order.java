@@ -1,7 +1,6 @@
 package com.deli.entity;
 
 public class Order {
-	private int id;
 	private String userName;
 	private String dishName;
 	private int dishId;
@@ -14,24 +13,6 @@ public class Order {
 	private boolean isPaid;
 	private boolean isPicked;
 	private String note;
-	
-	public Order(int id, String userName, String dish, int dishId, String email, String cell, String time, String place, int price,
-			String payment, boolean isPaid, boolean isPicked, String note) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.dishName = dishName;
-		this.dishId = dishId;
-		this.email = email;
-		this.cell = cell;
-		this.time = time;
-		this.place = place;
-		this.price = price;
-		this.payment = payment;
-		this.isPaid = isPaid;
-		this.isPicked = isPicked;
-		this.note = note;
-	}
 
 	public Order(String userName, String dishName, int dishId, String email, String cell, String time, String place, int price,
 			String payment, boolean isPaid, boolean isPicked, String note) {
@@ -48,14 +29,6 @@ public class Order {
 		this.isPaid = isPaid;
 		this.isPicked = isPicked;
 		this.note = note;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getUserName() {
@@ -140,7 +113,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", userName=" + userName + ", dishName=" + dishName + ", dishId=" + dishId + ", email=" + email + ", cell=" + cell
+		return "Order [userName=" + userName + ", dishName=" + dishName + ", dishId=" + dishId + ", email=" + email + ", cell=" + cell
 				+ ", time=" + time + ", place=" + place + ", price=" + price + ", payment=" + payment + ", isPaid="
 				+ isPaid + ", isPicked=" + isPicked + ", note" + "]";
 	}

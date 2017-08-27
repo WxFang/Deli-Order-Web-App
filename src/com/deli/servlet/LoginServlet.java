@@ -36,22 +36,11 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("--- In the doPost --");
 		
 		context = getServletContext();
-		String homeURI = request.getContextPath() + "/secured/index.jsp";
-		// get request parameters for userID and password
+		String homeURI = "OrderControllerServlet";
 		String pass = request.getParameter("j_username");
-	//	String username = request.getParameter("username");
-	//	String password = request.getParameter("password");
 
-		if (pass.equals("123456")) {
-			System.out.println(" - granted access !");
-		} else {
-			System.out.println(" - access Refused");
+		if (!pass.equals("123456"))
 			pass = null;
-		}
-
-		// User user = userDAO.find(username, password);
-
-		System.out.println(" - entered password is " + pass);
 
 		if (pass != null) {
 

@@ -15,8 +15,9 @@
 	<%=new java.util.Date()%>
 </center>
 
-
-
+	<c:forEach var="tempOrder" items="${ORDER_LIST }">
+		${tempOrder.dishName }<br/>
+	</c:forEach>
 
 
 </body>

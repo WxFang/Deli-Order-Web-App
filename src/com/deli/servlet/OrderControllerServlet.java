@@ -1,5 +1,8 @@
 package com.deli.servlet;
 
+import com.deli.entity.*;
+import com.deli.util.*;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -13,10 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.deli.util.*;
-import com.deli.entity.*;
-import com.deli.entity.*;
-
 /**
  * Servlet implementation class OrderControllerServlet
  */
@@ -24,46 +23,84 @@ import com.deli.entity.*;
 public class OrderControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private DishDbUtil DishDbUtil;
+	private OrderDbUtil OrderDbUtil;
 	
 	@Resource(name="jdbc/webdeli")
 	private DataSource dataSource;
 	
-	@Override
-	public void init() throws ServletException {
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
 		super.init();
-		
 		// create our dish dbutil ...  and pass in the connection pool
 		try{
-			DishDbUtil = new DishDbUtil(dataSource);
+			OrderDbUtil = new OrderDbUtil(dataSource);
+		}
+		catch(Exception exc){
+			throw new ServletException(exc);
+		}
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try{
+			String theCommand = request.getParameter("command");
+			if(theCommand == null)
+				theCommand = "LIST";
+			switch(theCommand){
+			
+			case "LIST":
+				listOrders(request, response);
+				break;
+			
+			case "ADD":
+				addOrder(request, response);
+				break;
+				
+			default: 
+				listOrders(request, response);
+			}
 		}
 		catch(Exception exc){
 			throw new ServletException(exc);
 		}
 	}
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("... get in serlet");
-		try{
-			
-			listDishes(req, resp);
-		}
-		catch(Exception e){
-			throw new ServletException(e);
-		}
+	private void addOrder(HttpServletRequest request, HttpServletResponse response) 
+		throws Exception {
+		
+		String dishName = request.getParameter("dishName");
+		String time = request.getParameter("time");
+		String place = request.getParameter("place");
+		String payment = request.getParameter("payment");
+		String userName = request.getParameter("name");
+		String email = request.getParameter("email");
+		String cell = request.getParameter("cell");
+		String note = request.getParameter("note");
+		
+		Dish theDish = DishDbUtil.getDish(dishName);
+		int dishId = theDish.getDishId();
+		int price = theDish.getPrice();
+		
+		Order theOrder = new Order(userName, dishName, dishId, email, cell, time, place, price,
+				payment, false, false, note);
+		OrderDbUtil.addOrder(theOrder);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/");
+		dispatcher.forward(request, response);
 	}
 
-	private void listDishes(HttpServletRequest request, HttpServletResponse response) 
+	private void listOrders(HttpServletRequest request, HttpServletResponse response) 
 		throws Exception {
-		List<Dish> dishes = DishDbUtil.getDishes();
-		System.out.println(dishes.size());
-		
-		request.setAttribute("DISH_LIST", dishes);
-		
-		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("/welcome.jsp");
-		dispatcher.forward(request, response);
+		List<Order> orders = OrderDbUtil.getOrders();
+		request.setAttribute("ORDER_LIST", orders);
+		System.out.println("redirect to ...");
+		request.getRequestDispatcher("/secured/index.jsp").forward(request, response);
 	}
 
 }

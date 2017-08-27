@@ -9,14 +9,13 @@ import java.util.*;
 
 public class DishDbUtil {
 	
-	private DataSource dataSource;
+	private static DataSource dataSource;
 
 	public DishDbUtil(DataSource theDataSource) {
 		dataSource = theDataSource;
 	}
 
 	public List<Dish> getDishes() throws Exception{
-		System.out.println("... get in database");
 		List<Dish> dishes = new ArrayList<>();
 		
 		Connection myConn = null;
@@ -49,7 +48,7 @@ public class DishDbUtil {
 		}
 	}
 
-	private void close(Connection myConn, Statement myStmt, ResultSet myRs) {
+	private static void close(Connection myConn, Statement myStmt, ResultSet myRs) {
 		try{
 			if(myRs != null)
 				myRs.close();
@@ -67,4 +66,44 @@ public class DishDbUtil {
 		}
 	}
 
+	public static Dish getDish(String dishName) 
+		throws Exception {
+		Dish theDish = null;
+		
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		
+		try{
+			myConn = dataSource.getConnection();
+			String sql = "select * from dish where name=?";
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setString(1, dishName);
+			myRs = myStmt.executeQuery();
+			if(myRs.next()){
+				int id = myRs.getInt("id");
+				int price = myRs.getInt("price");
+				theDish = new Dish(id, dishName, price);
+				System.out.println("Have found dish name: " + dishName);
+			}
+			else{
+				throw new Exception("Could not find dish name: " + dishName);
+			}
+			return theDish;
+		}
+		finally{
+			close(myConn, myStmt, myRs);
+		}
+	}
+
+	public void addDish(Dish theDish) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }
+
+
+
+
