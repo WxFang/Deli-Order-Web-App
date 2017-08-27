@@ -58,7 +58,7 @@ Customer: Choose dish, Add order, Delete order, See order.
 	- update dish info
 	- update state of order (isPicked, isPaid)
 	
-- [x]  <Strong>Handle cookies for customer information
+- [x]  <Strong>Handle cookies for customer information</Strong>
 
 	- store cookie in OrderControllerServlet (Tomcat doesn't allow " " in cookie)
 	- read cookie in welcome.jsp
