@@ -8,7 +8,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>- Manage Orders & Dishes -</title>
 	
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
 	<link rel="stylesheet" href="css/index-style.css"> 
 </head>
 
@@ -22,11 +23,23 @@
 		<h3>Order</h3>
 		<div style="overflow-x:auto;">
 			<table border=1>
+					<c:url var="orderDishLink" value="AdminControllerServlet">
+							<c:param name="command" value="LIST" />
+							<c:param name="sql" value="select * from `order` order by dishId ASC, isPaid, isPicked" />
+					</c:url>
+					<c:url var="orderUserLink" value="AdminControllerServlet">
+							<c:param name="command" value="LIST" />
+							<c:param name="sql" value="select * from `order` order by userName ASC, isPaid, isPicked" />
+					</c:url>
 				  <tr>
 				  	<th>Paid? </th>
 				    <th>Picked? </th>
-				    <th>Customer Name</th>
-				    <th colspan="2">Dish</th>
+				    <th>Customer Name
+				    <a href="${orderUserLink }"><i class="fa fa-fw fa-sort"></i></a>
+				    </th>
+				    <th colspan="2">Dish
+				    <a href="${orderDishLink }"><i class="fa fa-fw fa-sort"></i></a>
+				    </th>
 				    <th colspan="2">Contact</th>
 				    <th colspan="2">Pickup</th>
 				    <th>Price</th>
@@ -122,11 +135,14 @@
 			<br/>
 		</center>
 		<br/>
-		<input type="button" value="Add New Dish"
-			onclick="window.location.href='add-dish.jsp; return false;'"
-			class="w3-btn w3-black" style="text-align:center;"/>
-		<br/>
 	</div>
+	<br/>
+	<center>
+	<input type="button" value="Add New Dish"
+	onclick="window.location.href='add-dish.jsp; return false;'"
+	class="w3-btn w3-black"/>
+	</center>
+	<br/><br/>
 </body>
 
 </html>

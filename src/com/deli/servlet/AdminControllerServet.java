@@ -90,6 +90,7 @@ public class AdminControllerServet extends HttpServlet {
 			throw new ServletException(exc);
 		}
 	}
+
 	private void pickedOrder(HttpServletRequest request, HttpServletResponse response) 
 		throws Exception {
 		String dishName = request.getParameter("dishName");
@@ -138,11 +139,11 @@ public class AdminControllerServet extends HttpServlet {
 
 	private void listOrdersDishes(HttpServletRequest request, HttpServletResponse response) 
 			throws Exception {
-			List<Order> orders = OrderDbUtil.getOrders();
+			String sql = request.getParameter("sql");
+			List<Order> orders = OrderDbUtil.getOrders(sql);
 			List<Dish> dishes = DishDbUtil.getDishes();
 			request.setAttribute("DISH_LIST", dishes);
 			request.setAttribute("ORDER_LIST", orders);
-			System.out.println("redirect to ...");
 			request.getRequestDispatcher("/secured/index.jsp").forward(request, response);
 		}
 	

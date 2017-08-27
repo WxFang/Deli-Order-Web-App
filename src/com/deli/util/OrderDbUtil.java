@@ -20,7 +20,7 @@ public class OrderDbUtil {
 		dataSource = theDataSource;
 	}
 
-	public List<Order> getOrders() throws Exception{
+	public List<Order> getOrders(String sql) throws Exception{
 		List<Order> orders = new ArrayList<>();
 		
 		Connection myConn = null;
@@ -29,8 +29,8 @@ public class OrderDbUtil {
 		
 		try{
 			myConn = dataSource.getConnection();
-			
-			String sql = "select * from `order` order by isPaid, isPicked, userName";
+			if(sql == null)
+				sql = "select * from `order` order by isPaid, isPicked, userName";
 			myStmt = myConn.createStatement();
 			
 			myRs = myStmt.executeQuery(sql);
