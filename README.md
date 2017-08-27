@@ -34,9 +34,16 @@ Customer: Choose dish, Add order, Delete order, See order.
 
 - [x]  Create MySQL database for dish and order
 
-- [ ]  Design basic customer page:<br/>
+- [x]  Design basic customer page:<br/>
 	
-	- check box to choose dishes
-	- radio box to choose pick time, place and payment
+	- choose dishes
+	- choose pick time, place and payment
 	- fill in name, email, cell
 	- add note
+- [ ] Design basic administer page:<br/>
+
+	- show all orders (information)
+	- show all dishes 
+	- add / delete dish
+	- update dish info
+	- update state of order (isPicked, isPaid)
