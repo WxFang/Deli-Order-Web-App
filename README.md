@@ -12,7 +12,7 @@ Administer: Login, Add/delete dish, Update dish, Manage orders.
 Customer: Choose dish, Add order, Delete order, See order.
 
 ## To be done: 
-- [x]  Create Order Class
+- [x]  <Strong>Create Order Class</Strong>
 
 	- order id
 	- customer name
@@ -28,29 +28,29 @@ Customer: Choose dish, Add order, Delete order, See order.
 	- is picked or not
 	- note
 	
-- [x]  Create Dish Class
+- [x]  <Strong>Create Dish Class</Strong>
 
 	- dish id (each dish has unique id, even after deleted)
 	- dish name
 	- price
 	
-- [x]  Administer Login Page
+- [x]  <Strong>Administer Login Page</Strong>
 
 
-- [x]  Administer Authentication (Webfilter and Servlet)
+- [x]  <Strong>Administer Authentication (Webfilter and Servlet)</Strong>
 
 
-- [x]  Create MySQL database for dish and order
+- [x]  <Strong>Create MySQL database for dish and order</Strong>
 
 
-- [x]  Design basic customer page:<br/>
+- [x]  <Strong>Design basic customer page:<br/></Strong>
 	
 	- choose dishes
 	- choose pick time, place and payment
 	- fill in name, email, cell
 	- add note
 	
-- [x] Design basic administer page:<br/>
+- [x] <Strong>Design basic administer page:<br/></Strong>
 
 	- show all orders (order by isPaid, isPicked and customer name)
 	- show all dishes 
@@ -58,4 +58,4 @@ Customer: Choose dish, Add order, Delete order, See order.
 	- update dish info
 	- update state of order (isPicked, isPaid)
 	
-- [ ]  Handle cookies for customer information
+- [ ]  <Strong>Handle cookies for customer information
