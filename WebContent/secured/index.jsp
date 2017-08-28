@@ -9,20 +9,21 @@
 	<title>- Manage Orders & Dishes -</title>
 	
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	 <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/index-style.css"> 
+	<link rel="stylesheet" href="../css/index-style.css"> 
 </head>
 
 
-<div class="w3-container">
-	<center><h1>Management</h1></center>
-	<center><%=new java.util.Date()%></center>
+<div class="w3-container center">
+	<h1>Management</h1>
+	<%=new java.util.Date()%>
 </div>
 
-	<div class="w3-container w3-khaki" style="text-align:center;">
+	<div class="w3-container center" id="order">
 		<h3>Order</h3>
 		<div style="overflow-x:auto;">
-			<table border=1>
+			<table style="text-align:center;">
 					<c:url var="orderDishLink" value="AdminControllerServlet">
 							<c:param name="command" value="LIST" />
 							<c:param name="sql" value="select * from `order` order by dishId ASC, isPaid, isPicked" />
@@ -59,7 +60,7 @@
 							<c:param name="dishName" value="${tempOrder.dishName }" />
 						</c:url>
 						<tr>
-							<td>
+							<td class="center">
 							<a href="${paidLink }">
 							<c:if test="${tempOrder.isPaid()}">
 								&#x2611
@@ -69,7 +70,7 @@
 							</c:if>
 							</a>
 							</td>
-							<td>
+							<td class="center">
 							<a href="${pickedLink }">
 							<c:if test="${tempOrder.isPicked()}">
 								&#x2611
@@ -97,15 +98,22 @@
 		<br/>
 	</div>	
 	<br/>
-	<div class="w3-container w3-light-grey" style="text-align:center;">
+	<center>
+	<div class="w3-container" id="dish">
+		<br/>
 		<h3>Dish</h3>
-		<center>
-			<table border=1>
-				<col width="10%">
-				<col width="60%">
-				<col width="10%">
-				<col width="20%">
-				<tbody>
+			<table style="text-align:center;">
+				<tr>
+					<th>Dish Id</th>
+					<th>Dish Name</th>
+					<th>Price</th>
+					<th>Action</th>
+				</tr>
+				<tbody class="center">
+					<col width="10%">
+					<col width="60%">
+					<col width="10%">
+					<col width="20%">
 					<c:forEach var="tempDish" items="${DISH_LIST}">
 						<c:url var="tempLink" value="AdminControllerServlet">
 							<c:param name="command" value="LOAD" />
@@ -118,30 +126,26 @@
 							<c:param name="price" value="${tempDish.price }" />
 						</c:url>
 						<tr>
-							<td>${tempDish.dishId }</td>
+							<td class="center">${tempDish.dishId }</td>
 							<td>${tempDish.dishName }</td>
-							<td>$${tempDish.price }</td>
-							<td>
-								<a href="${tempLink }">Update</a>
+							<td class="center">$${tempDish.price }</td>
+							<td class="center"><a href="${tempLink }">Update</a>
 								|
 								<a href="${deleteLink }"
-								onclick="if(!(confirm('Are you sure you want to delete this stduent?'))) return false">
-								Delete</a>
-							</td>
+								onclick="if(!(confirm('Are you sure you want to delete this dish?'))) return false">
+								Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>	
-			<br/>
-		</center>
+		<br/>
+		<input class="w3-btn w3-white w3-round" id="button" value="Add New Dish" 
+	onclick="window.location.href='add-dish.jsp; return false;'"/>
+		<br/>
 		<br/>
 	</div>
-	<br/>
-	<center>
-	<input type="button" value="Add New Dish"
-	onclick="window.location.href='add-dish.jsp; return false;'"
-	class="w3-btn w3-black"/>
 	</center>
+	<br/>
 	<br/><br/>
 </body>
 

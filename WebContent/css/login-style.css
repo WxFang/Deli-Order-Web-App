@@ -4,14 +4,14 @@ html {
 }
 label {
 	display: block;
-	color: #999;
+	color: #3399ff;
 }
 
 body {
-    font-family: Helvetica Neue, Arial; 
+    font-family: "Times New Roman", Times, serif;
     font-size: 18px;
 
-    color: aliceblue;
+    color: #3399ff;
  
     
 }

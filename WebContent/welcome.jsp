@@ -10,6 +10,7 @@
 	<title>- Enjoy Deli -</title>
 	
 	 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+	 <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 	 <link type="text/css" rel="stylesheet" href="css/welcome-style.css">
 </head>
 
@@ -39,17 +40,17 @@
 %>
 
 
-<center>
+<div class="center">
 	<h5><a href="login.jsp">Administer Login</a></h5>
 	<h1>Chinese Deli</h1>
 	<br><%=new java.util.Date()%><br><br>
-</center>
+</div>
 
 <form action="OrderControllerServlet" method="POST">
 	<input type="hidden" name="command" value="ADD" />
 
-	<div class="w3-container w3-khaki" style="margin:auto; width:50%;">
-		<center><h3>Menu</h3></center>
+	<div class="w3-container" id="dish">
+		<h3>Menu</h3>
 		<table>
 			<col width="600">
 			<col width="50">
@@ -65,7 +66,7 @@
 		<br/>
 	</div>	
 	<br>
-	<div class="w3-container w3-teal" style="margin:auto; width:50%;">
+	<div class="w3-container" id="pickup">
 		<h3>Pick Time</h3>
 		<input type="radio" name="time" value="11:30" required> 11:30
 		<input type="radio" name="time" value="12:00" required> 12:00
@@ -82,7 +83,7 @@
 		<br/><br/>
 	</div>	
 	<br>
-	<div class="w3-container w3-indigo" style="margin:auto; width:50%;">
+	<div class="w3-container" id="contact">
 		<h3>Contact</h3>
 		<table>
 			<tbody>
@@ -103,13 +104,13 @@
 		<br/>
 	</div>
 	<br>
-	<div class="w3-container w3-light-grey" style="margin:auto; width:50%;">
+	<div class="w3-container w3-light-grey center" id="note">
 		<h3>Note</h3>
 		<input type="text" name="note" style="width:100%; height:100%"/>
 		<br/><br/>
 	</div>
 	<br>
-	<div class="w3-container" style="margin:auto; width:20%;">
+	<div class="w3-container" id="submit">
 		<input type="submit" value="Submit new order" class="w3-btn w3-black w3-block w3-round" onclick="alert('Order Submitted!');"/>
 	</div>
 </form>
