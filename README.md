@@ -11,7 +11,7 @@ Administer: Login, Add/delete dish, Update dish, Manage orders.
 <br/><br/>
 Customer: Choose dish, Add order, Delete order, See order.
 
- Servlet and Filter        |  JSP, SQL scripts and XML
+ Servlet and Filter        |  JSP, SQL scripts, CSS and XML
 :-------------------------:|:-------------------------:
 ![img](http://i.imgur.com/iHTT6b2.png)  |  ![img](http://i.imgur.com/8HJeafi.png)
 
