@@ -7,11 +7,13 @@ Java EE, JSP, Servlet, JDBC, Mysql
 MVC, DAO
 
 <br />
+
 ## Main Function:
 Administer: Login, Add/delete dish, Update dish, Manage orders.
 Customer: Choose dish, Add order, Delete order, See order.
 
 <br />
+
 ## MVC Design Architecture
 ![img](http://i.imgur.com/Ry2kDsv.png)
 
