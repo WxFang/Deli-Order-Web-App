@@ -9,7 +9,7 @@ MVC, DAO
 <br />
 
 ## Main Function:
-Administer: Login, Add/delete dish, Update dish, Manage orders.
+Administer: Login, Add/delete dish, Update dish, Manage orders.<br />
 Customer: Choose dish, Add order, Delete order, See order.
 
 <br />
