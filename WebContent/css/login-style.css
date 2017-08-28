@@ -4,14 +4,14 @@ html {
 }
 label {
 	display: block;
-	color: #3399ff;
+	color: black;
 }
 
 body {
     font-family: "Times New Roman", Times, serif;
     font-size: 18px;
 
-    color: #3399ff;
+    color: black;
  
     
 }
@@ -26,7 +26,7 @@ table, th, td {
 td, tr 
 { 
 	padding: .3em;
-	border: 3px #ccc groove; 
+	border: 3px #3399ff; 
 }
 
 
@@ -36,22 +36,21 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
+    background-color: rgba(250,250,250,0.5);
 }
 
 
 
 li a {
     display: block;
-    color: #666;
+    color: #ccff99;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover:not(.active) {
-    background-color: #ddd;
+    background-color: #9999ff;
 }
 
 
@@ -98,14 +97,7 @@ li a:hover:not(.active) {
 }
 .loginform input[type=submit] {
 	border: 1px solid rgba(0, 0, 0, 0.3);
-	background: #64c8ef; /* Old browsers */
-	background: -moz-linear-gradient(top,  #64c8ef 0%, #00a2e2 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#64c8ef), color-stop(100%,#00a2e2)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #64c8ef 0%,#00a2e2 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #64c8ef 0%,#00a2e2 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #64c8ef 0%,#00a2e2 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #64c8ef 0%,#00a2e2 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64c8ef', endColorstr='#00a2e2',GradientType=0 ); /* IE6-9 */
+	background:  #990000;
 	color: #fff;
 	padding: 6px 15px;
 
