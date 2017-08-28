@@ -1,7 +1,7 @@
 ## Web App for Deli Order
 
 ### Tech Stack:
-Java EE, JSP, Servlet, JDBC, Mysql
+J2EE, JSP, Servlet, JSTL, JDBC, MySQL
 
 ### Design Pattern:
 MVC, DAO
