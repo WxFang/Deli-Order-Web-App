@@ -14,10 +14,11 @@ Customer: Choose dish, Add order, Delete order, See order.
 ## MVC Design Architecture
 ![img](http://i.imgur.com/Ry2kDsv.png)
 
-
+<center>
  Servlet and Filter        |  JSP, SQL scripts, CSS and XML
 :-------------------------:|:-------------------------:
 ![img](http://i.imgur.com/iHTT6b2.png)  |  ![img](http://i.imgur.com/8HJeafi.png)
+</center>
 
 ## To be done: 
 - [x]  <Strong>Create Order Class</Strong>
